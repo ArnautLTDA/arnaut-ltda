@@ -1,0 +1,25 @@
+{
+ "palettes": [
+  "forest-pale-lime"
+ ],
+ "types": [
+  "host"
+ ],
+ "dealt": [
+  "host",
+  "gabarito",
+  "geist"
+ ],
+ "moments": [
+  {
+   "id": "pinned-chapters",
+   "at": "2026-11-17T21:45:04.007Z",
+   "seed": "7418f2a0"
+  },
+  {
+   "id": "liquid-type",
+   "at": "2026-11-17T21:45:04.007Z",
+   "seed": "7418f2a0"
+  }
+ ]
+}

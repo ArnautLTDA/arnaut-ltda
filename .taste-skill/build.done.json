@@ -1,0 +1,11 @@
+{
+ "page": "index.html",
+ "url": null,
+ "root": null,
+ "kind": "software",
+ "category": "software house de engenharia autonoma",
+ "primary": "Solicitar proposta",
+ "rounds": 3,
+ "start": "2026-11-17T21:44:36.251Z",
+ "by": "gate.mjs --start"
+}

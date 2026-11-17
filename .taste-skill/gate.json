@@ -1,0 +1,554 @@
+{
+ "start": "2026-11-17T21:44:36.251Z",
+ "round": 3,
+ "idle": 0,
+ "errors": 0,
+ "status": "open",
+ "history": [
+  {
+   "at": "2026-11-17T21:57:33.531Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 69,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-17T23:02:44.900Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 7,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-17T23:14:10.166Z",
+   "mode": "manual",
+   "status": "open",
+   "fails": 3,
+   "round": 3,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": "index.html",
+  "url": null,
+  "root": null,
+  "kind": "software",
+  "category": "software house de engenharia autonoma",
+  "primary": "Solicitar proposta",
+  "rounds": 3,
+  "start": "2026-11-17T21:44:36.251Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "2dc65de069bc1442:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "2dc65de069bc1442",
+ "page": "index.html",
+ "found": {
+  "fails": [
+   {
+    "check": "section-gaps",
+    "where": "section#pillars / section#lifecycle",
+    "msg": "370px between these sections, +72% against the median 215px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "section#pillars / section#lifecycle"
+    ]
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#lifecycle / section#stack",
+    "msg": "375px between these sections, +75% against the median 215px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "section#lifecycle / section#stack"
+    ]
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#contact / footer.footer.closing",
+    "msg": "456px between these sections, +113% against the median 215px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "section#contact / footer.footer.closing"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "cut-text",
+    "where": "ul.ui-toggles__list > li.ui-tg:nth-of-type(2) > span.ui-tg__text > span.ui-tg__sub \"Sandbox sem rede\"",
+    "msg": "cut 6px at the bottom by the overflow of div.wrap > div.grid > article.card.card--row:nth-of-type(1) > div.panel: a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "scroll-reveal",
+    "where": "section#lifecycle \"Ciclo de desenvolvimento autônomo em trê\"",
+    "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
+    "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "pinned",
+    "where": "section#lifecycle > div.wrap.mo-pc__grid \"Ciclo de desenvolvimento autônomo em trê\"",
+    "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
+    "fix": "let the section scroll with the page",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-only",
+    "where": "section#faq \"Perguntas frequentes sobre a esteira The\"",
+    "msg": "the section is only text: no picture, icon, mock or effect in it",
+    "fix": "give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "card-layout",
+    "where": "section#pillars > div.wrap > div.grid \"Confinamento de segredos com mTLS Certif\"",
+    "msg": "4 cards with 1 placement of their UI (vary them: rise, corner, a low stack, right)",
+    "fix": "vary the cards of a group: at least three placements, and the ground in its own light on each",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "same-action",
+    "where": "div.wrap > div.grid > p.span-6.start-7 > a.link \"Solicitar proposta\"",
+    "msg": "\"Solicitar proposta\" is a button in one place and a text link in another: one action in two looks",
+    "fix": "show one action one way: the same button wherever it repeats, or a text link everywhere",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "pricing-tiers",
+    "where": "section#pricing > div.wrap > div.grid \"Principal Desenvolvimento de Sistemas A \"",
+    "msg": "2 priced cards laid out as plans (one marked \"Principal Desenvolviment\"), with no subscription to choose",
+    "fix": "plan cards only for a subscription: show rooms, dishes or goods as themselves (a photograph, what it is, its price, one action)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.wrap > div.grid > article.card.card--row:nth-of-type(1) > h3 \"Confinamento de segredos com mTLS\"",
+    "msg": "the card title \"Confinamento de segredos com mTLS\" names no product, part, place or section (8 card titles like it) (and 7 more like it: \"Suíte de testes automati\", \"Portões de segurança Son\", \"Mensageria resiliente Ra\", \"PoC de Automação\", ...)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-buttons",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"Solicitar proposta\"",
+    "msg": "\"Solicitar proposta\" does not start with a verb (book, buy, try, start, get, see...)",
+    "fix": "label buttons with a verb and what the visitor gets (\"Book a room\", \"Start free trial\")",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "contrast",
+    "where": "div.d-win__body > div.inbox > div.t:nth-of-type(2) > time \"Ativo\"",
+    "msg": "body text over a effect reads at 4.4:1 at its worst tenth (needs 4.5:1) (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "put the text on a calm part of the picture, or on a solid panel",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#agency / section#pillars",
+    "msg": "130px between these sections, -50% against the median 258px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#pillars / section#lifecycle",
+    "msg": "333px between these sections, +29% against the median 258px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#stack / section#pricing",
+    "msg": "182px between these sections, -29% against the median 258px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#faq / section#contact",
+    "msg": "349px between these sections, +36% against the median 258px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "hole",
+    "where": "section#stack \"Integrações de infraestrutura e tecnolog\"",
+    "msg": "an empty hole 780x240px inside the section (27% of the screen's height), with content above and below it",
+    "fix": "close the empty space: move the content together, or give the space the visual it lacks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.nav > div.wrap.nav__bar > a.nav__logo \"Arnaut LTDA\"",
+    "msg": "\"Arnaut LTDA\" opens a section headed \"Software house de engenharia autônoma para sistema\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "ul.ui-notify__list > li.ui-note:nth-of-type(2) > span.ui-note__text > span.ui-note__title \"Gitleaks: 0 segredos detectados\"",
+    "msg": "a line of div.ui.ui-notify fades out under its edge (\"Gitleaks: 0 segredos d\"): drawn at a fraction of #ffffff on #262626, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div.mo-pc__visuals.frame > figure.mo-pc__visual:nth-of-type(3) > div > span:nth-of-type(1) \"PLAYWRIGHT:\"",
+    "msg": "2 lines of div.mo-pc__visuals.frame fade out under its edge (\"PLAYWRIGHT:\", \"Health check:\"): drawn at a fraction of #dafa9c on #141414, half-erased (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "h2#agency-h \"The Agency: esteira autônoma de engenhar\"",
+    "msg": "a section heading of 14 words on 4 lines at 48px: a paragraph set in display type",
+    "fix": "cut the heading to one short line (2 to 12 words) and move the rest into the text under it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "h2#lifecycle-h \"Ciclo de desenvolvimento autônomo em trê\"",
+    "msg": "a section heading of 15 words on 4 lines at 48px: a paragraph set in display type",
+    "fix": "cut the heading to one short line (2 to 12 words) and move the rest into the text under it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "h2#stack-h \"Integrações de infraestrutura e tecnolog\"",
+    "msg": "a section heading of 17 words on 5 lines at 48px: a paragraph set in display type",
+    "fix": "cut the heading to one short line (2 to 12 words) and move the rest into the text under it",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-length",
+    "where": "section#faq \"Perguntas frequentes sobre a esteira The\"",
+    "msg": "3 sections over 90 words a screen outside the UI mocks (\"Perguntas frequentes sob\" 146, \"Planos de contratação e \" 116, \"Garantia de Confidencial\" 116); 81 words a screen across the page (731 words in 9 screens): a tech page says it in about 80 or fewer",
+    "fix": "cut every section to its heading, one line and the product UI: the UI says the rest; no second paragraph, no list of feature sentences",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-current",
+    "where": "header.nav",
+    "msg": "the nav stays on screen with 6 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
+    "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-count",
+    "where": "div.wrap > div.closing__cta.close--word > div.section-head--split > a.btn.btn--primary",
+    "msg": "the main action \"Solicitar proposta\" is on 9 buttons and links: the nav, the hero and the closing call carry it; elsewhere a section has its own action",
+    "fix": "the main action in the nav, the hero and the closing call; give the other sections their own action",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "loop-cycle",
+    "where": "section#agency > div.wrap > div.ui.app > div.app__pane.app__pane--open",
+    "msg": "a fragment loop of 1.6 s: under the 2.5-4 s cycle, it reads as blinking",
+    "fix": "set the loop's cycle to 2.5-4 s (--m-cycle) with every keyframe on it, repeating",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "skip-link",
+    "where": "header.nav > div.wrap.nav__bar > a.skip-link:nth-of-type(1) \"Pular para o conteúdo principal\"",
+    "msg": "the first Tab stop is \"Pular para o conteúdo principal\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+    "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-repeat",
+    "where": "header.nav > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary \"solicitar proposta\"",
+    "msg": "\"solicitar proposta\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
+    "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "assumed",
+    "where": "div.grid:nth-of-type(2) > article.card.span-4:nth-of-type(2) > div.pricing-price:nth-of-type(2) > span \"A partir de R$ 15.000\"",
+    "msg": "2 facts marked as assumed, for the report: \"A partir de R$ 15.000\", \"A partir de R$ 8.500\"",
+    "fix": "list each assumed fact in the report for the client to confirm, or take it from the brief",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "form-send",
+    "where": "div.wrap > div.grid > div.span-6.start-7:nth-of-type(2) > form.form \"mailto:contato@arnaut.example\"",
+    "msg": "the form opens a mail to contato@arnaut.example: a stand-in until the client gives its form address; list it in the report",
+    "fix": "send the form to the client's address (data-endpoint) and show the confirmation only after it answers; list a mailto stand-in in the report",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "container-edges",
+    "where": "div.d-win__body > div.inbox > div.t:nth-of-type(3) > span \"Baileys & Outbound AMQP\"",
+    "msg": "3 text blocks start on a left line at x 336, 256px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"mTLS Banco Inter & Webhooks\", \"Orquestração LangGraph confinada\") (it is in a scroll scene: told as a WARN) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "container-edges",
+    "where": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1) \"Etapa 1: Requisitos e Especificações BDD\"",
+    "msg": "3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"Etapa 2: Engenharia TDD e Segura\", \"Etapa 3: Homologação Playwright \") (it is in a scroll scene: told as a WARN) (SR-6)",
+    "fix": "start the text on the container's left, or on the one split line every split shares",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "row-lines",
+    "where": "div.ly-piece.d-win > div.d-win__body > div.inbox > div.t:nth-of-type(2) \"ENEngine CentralAtivoOrquestração LangGr\"",
+    "msg": "a row of 3 items: its first item starts at 302px, the container's left line at 80px; its last item ends at 1139px, the container's right line at 1360px; its items are 28/19/19px tall, not one height (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "row-lines",
+    "where": "div.ly-piece.d-win > div.d-win__body > div.inbox > div.t:nth-of-type(3) \"WPWhatsApp GatewayAtivoBaileys & Outboun\"",
+    "msg": "a row of 3 items: its first item starts at 300px, the container's left line at 80px; its last item ends at 1139px, the container's right line at 1360px; its items are 28/19/19px tall, not one height (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "row-lines",
+    "where": "div.ly-piece.d-win > div.d-win__body > div.inbox > div.t:nth-of-type(4) \"PYPayment GatewayAtivomTLS Banco Inter &\"",
+    "msg": "a row of 3 items: its first item starts at 300px, the container's left line at 80px; its last item ends at 1139px, the container's right line at 1360px; its items are 28/19/19px tall, not one height (2px either way) (it is in a scroll scene: told as a WARN) (SR-7)",
+    "fix": "start the row's first item on the container's left line and end its last on the right line, every item one height",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "div.ly-piece.d-win > div.d-win__body > div.convo > div.term-line:nth-of-type(2) \"✓ Pipeline aprovado no Security Gate com\"",
+    "msg": "cut 16px at the bottom by the overflow of section.hero.hero--centred > div.wrap > div.hero-text > div.hero__window.frame (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "div.app__pane.app__pane--open > div.ui.ui-panel > div.ui-pipe__head > span.ui-pipe__repo \"ArnautLTDA/the-agency\"",
+    "msg": "shortened with an ellipsis (and 4 more like it: \"BDD Specs\", \"Testes TDD\", \"Segurança\", \"Deploy Prod\")",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "proximity",
+    "where": "section.hero.hero--centred > div.wrap > div.hero-text > div.hero__window.frame \"Arnaut LTDA · Software House The Agency \"",
+    "msg": "stacked at this width, the visual starts 22px under the text and buttons above it (\"Arnaut LTDA · Software House T\"): it reads glued to them (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "give the stacked split the section's own gap between text and visual (40px or more on a phone)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "orphan",
+    "where": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(2) \"Etapa 2: Engenharia TDD e Segurança Conf\"",
+    "msg": "its last line holds only \"10)\" (inside a held section or scroll scene, whose motion --quick does not check)",
+    "fix": "rebalance the text (text-wrap: pretty, or a shorter line) so the last line holds more than one short word",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 139,
+   "layout": 4
+  }
+ },
+ "open": [
+  {
+   "check": "section-gaps",
+   "where": "section#pillars / section#lifecycle",
+   "msg": "370px between these sections, +72% against the median 215px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "section#pillars / section#lifecycle"
+   ]
+  },
+  {
+   "check": "section-gaps",
+   "where": "section#lifecycle / section#stack",
+   "msg": "375px between these sections, +75% against the median 215px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "section#lifecycle / section#stack"
+   ]
+  },
+  {
+   "check": "section-gaps",
+   "where": "section#contact / footer.footer.closing",
+   "msg": "456px between these sections, +113% against the median 215px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "section#contact / footer.footer.closing"
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 38,
+ "at": "2026-11-17T23:14:10.166Z",
+ "openTold": true
+}

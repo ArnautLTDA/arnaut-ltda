@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR" data-type="software" data-radius="soft">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Créditos e Atribuições · Arnaut LTDA</title>
+<meta name="description" content="Créditos de fontes, bibliotecas e ativos utilizados no site institucional da Arnaut LTDA.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0f1f10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<style>
+:root {
+  --p-bg: #0f1f10; --p-surface: #162a17; --p-ink: #ffffff; --p-muted: #9aa39a;
+  --p-accent: #c6f19d; --p-accent-ink: #0f1f10; --p-action: #c6f19d; --p-action-ink: #0f1f10;
+  --p-inv-bg: #ffffff; --p-inv-surface: #ecedec; --p-inv-ink: #0f1f10; --p-inv-muted: #606c60;
+  --font-display: "Host Grotesk", system-ui, sans-serif;
+  --font-text: "Host Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+body { background: var(--p-bg); color: var(--p-ink); font-family: var(--font-text); margin: 0; padding: 0; }
+.legal-wrap { max-width: 760px; margin: 0 auto; padding: 96px 24px 64px; }
+h1 { font-size: clamp(32px, 3vw, 44px); font-weight: 500; margin-bottom: 32px; letter-spacing: -0.03em; }
+h2 { font-size: 22px; font-weight: 500; margin-top: 40px; margin-bottom: 16px; color: var(--p-accent); }
+p, li { font-size: 16px; line-height: 1.6; color: #d0d7cf; }
+ul { padding-left: 20px; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--p-accent); text-decoration: none; font-size: 15px; margin-bottom: 32px; }
+.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="legal-wrap">
+    <a class="back-link" href="index.html">← Voltar para a página inicial</a>
+    <h1>Créditos e Atribuições</h1>
+    <p>Ativos, tipografias e bibliotecas de código aberto utilizados no desenvolvimento deste portal institucional:</p>
+    
+    <h2>1. Tipografia</h2>
+    <ul>
+      <li><strong>Host Grotesk:</strong> Criada por Lucas Sharp e colaboradores, distribuída sob licença SIL Open Font License através do Google Fonts.</li>
+      <li><strong>JetBrains Mono:</strong> Desenvolvida pela JetBrains, distribuída sob licença Apache 2.0.</li>
+    </ul>
+
+    <h2>2. Ícones e Marcas</h2>
+    <p>Ícones das tecnologias referenciadas (Python, TypeScript, Node.js, PostgreSQL, RabbitMQ, Docker, GitHub, Playwright, React, FastAPI) são marcas registradas de suas respectivas organizações e mantenedores de código aberto, utilizados estritamente em caráter identificador de interoperabilidade técnica.</p>
+
+    <h2>3. Engenharia de Frontend</h2>
+    <p>Construído com a biblioteca de componentes e padrões de anti-slop do <strong>taste-skill 2.5</strong>.</p>
+  </div>
+</body>
+</html>
