@@ -1,23 +1,37 @@
+# Next.js
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
 # OS and Editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
 
-# Dependencies and caches
-node_modules/
+# Environment Variables & Secrets
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.key
+*.pem
+
+# Testing & Caches
+coverage/
+test-results/
+playwright-report/
 .taste-skill/chrome-*/
 .taste-skill/chrome-*
 .taste-skill/consistency/
 .taste-skill/gate/
 .taste-skill/*.log
-
-# Environments and Secrets
-.env
-.env.*
-!*.example
-*.key
-*.pem
-
-# Local Agents
 .agents/
