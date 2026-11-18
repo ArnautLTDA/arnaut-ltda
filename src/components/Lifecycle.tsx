@@ -12,8 +12,8 @@ interface Step {
 const STEPS: Step[] = [
   {
     id: 1,
-    title: "Etapa 1: Requisitos e Especificações BDD de Software",
-    desc: "Agentes analisam o requisito e escrevem cenários Gherkin com critérios objetivos de aceite e contratos de dados.",
+    title: "Etapa 1: Configure sua agência em minutos",
+    desc: "The Agency roda como uma aplicação standalone no seu ambiente. Configure nichos-alvo, região de atuação e parâmetros de precificação com conexões automáticas a gateways.",
     visual: (
       <div
         style={{
@@ -27,26 +27,24 @@ const STEPS: Step[] = [
           lineHeight: "1.6",
         }}
       >
-        <span style={{ color: "var(--p-accent)" }}>Feature:</span> Processamento
-        de pagamentos via PIX
+        <span style={{ color: "var(--p-accent)" }}>SETUP:</span> Nichos
+        configurados: Barbearias, Clínicas, Oficinas
         <br />
-        &nbsp;&nbsp;<span style={{ color: "var(--p-accent)" }}>
-          Scenario:
-        </span>{" "}
-        Emissão com certificado mTLS válido
+        <span style={{ color: "var(--p-accent)" }}>LOCATION:</span> São Paulo,
+        SP e regiões metropolitanas
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Given credenciais mTLS ativas no gateway
+        <span style={{ color: "#dafa9c" }}>GATEWAYS:</span> WhatsApp Gateway
+        ativo & Banco Inter mTLS conectado
         <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;When payload de cobrança for enviado
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;Then retorno deve conter chave copia-e-cola
+        <span style={{ color: "#ffffff" }}>STATUS:</span> Esteira pronta para
+        iniciar prospecção autônoma
       </div>
     ),
   },
   {
     id: 2,
-    title: "Etapa 2: Engenharia TDD e Segurança Confinada",
-    desc: "O agente coder produz o código mínimo para passar nos testes unitários, submetido de imediato aos scanners de segurança.",
+    title: "Etapa 2: A IA prospecta, prototipa e vende",
+    desc: "Agentes autônomos mineram leads qualificados, constroem protótipos sob medida e abordam clientes no WhatsApp com o sistema deles já pronto. Você aprova com 1 clique.",
     visual: (
       <div
         style={{
@@ -60,23 +58,24 @@ const STEPS: Step[] = [
           lineHeight: "1.6",
         }}
       >
-        <span style={{ color: "#dafa9c" }}>PASS</span>{" "}
-        services/payment/tests/test_inter.py
+        <span style={{ color: "#dafa9c" }}>LEAD:</span> Barbearia Dom Pedro
+        (Nota 4.8 · 142 avaliações no Maps)
         <br />
-        <span style={{ color: "#dafa9c" }}>PASS</span>{" "}
-        services/payment/tests/test_webhook.py
+        <span style={{ color: "#dafa9c" }}>DEMO:</span>{" "}
+        barbearia-dom-pedro.vercel.app (fotos e catálogo real)
         <br />
-        <span style={{ color: "#a8b3a8" }}>Gitleaks:</span> 0 secrets detected
+        <span style={{ color: "#a8b3a8" }}>WHATSAPP:</span> Abordagem com
+        screenshot responsivo e link ativo
         <br />
-        <span style={{ color: "#a8b3a8" }}>Semgrep:</span> 0 security findings
-        (OWASP Top 10)
+        <span style={{ color: "var(--p-accent)" }}>PIX SINAL:</span> R$ 600,00
+        liquidado via QR Code dinâmico
       </div>
     ),
   },
   {
     id: 3,
-    title: "Etapa 3: Homologação Playwright e Deploy Confinado",
-    desc: "Testes de ponta a ponta em navegadores reais verificam formulários e transações antes do envio final aos contêineres.",
+    title: "Etapa 3: Software entregue, você fatura",
+    desc: "A fábrica autônoma constrói o sistema final com Clean Architecture, testes e pentest. O cliente recebe o código-fonte no GitHub e você recebe o pagamento via PIX.",
     visual: (
       <div
         style={{
@@ -90,17 +89,17 @@ const STEPS: Step[] = [
           lineHeight: "1.6",
         }}
       >
-        <span style={{ color: "#dafa9c" }}>PLAYWRIGHT:</span> 3 journeys passed
-        on Chromium
+        <span style={{ color: "#dafa9c" }}>ENTREGA:</span> Repositório Git
+        transferido ao cliente sem lock-in
         <br />
-        <span style={{ color: "#ffffff" }}>Docker deploy:</span> image
-        arnaut/payment:v1.4.2
+        <span style={{ color: "#ffffff" }}>QA & SEGURANÇA:</span> 31 suítes PASS
+        (88% cov) · 0 vulnerabilidades
         <br />
-        <span style={{ color: "#a8b3a8" }}>Health check:</span> HTTP 200 OK em
-        42ms
+        <span style={{ color: "var(--p-accent)" }}>FINANCEIRO:</span> R$
+        1.200,00 recebido (Tokens gastos: R$ 4,80)
         <br />
-        <span style={{ color: "var(--p-accent)" }}>Status:</span> Produção
-        estável e monitorada
+        <span style={{ color: "#a8b3a8" }}>MRR:</span> Plano de sustentação R$
+        197/mês ativado com sucesso
       </div>
     ),
   },
@@ -110,53 +109,75 @@ export default function Lifecycle() {
   const [activeStep, setActiveStep] = useState<number>(1);
 
   return (
-    <section
-      className="section"
-      id="lifecycle"
-      style={{ "--h": 2 } as React.CSSProperties}
-      data-moment="pinned-chapters"
-      aria-labelledby="lifecycle-h"
-    >
-      <div className="wrap mo-pc__grid">
+    <section className="section" id="lifecycle" aria-labelledby="lifecycle-h">
+      <div className="wrap grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="mo-pc__text">
           <h2 id="lifecycle-h">
-            Ciclo de desenvolvimento autônomo em três etapas.{" "}
+            De zero a sua agência de software em três etapas.{" "}
             <span className="muted">
-              Do requisito em linguagem natural ao deploy validado.
+              Do setup inicial ao faturamento no seu caixa.
             </span>
           </h2>
-          <p style={{ marginBottom: "var(--s-5)" }}>
+          <p style={{ marginBottom: "var(--s-4)" }}>
             <a className="link" href="#contact">
-              Solicitar proposta para sua esteira
+              Entrar na lista de espera para acesso antecipado
             </a>
           </p>
-          <ol className="mo-pc__steps">
+          <ol
+            className="mo-pc__steps"
+            style={{
+              display: "grid",
+              gap: "12px",
+              listStyle: "none",
+              padding: 0,
+            }}
+          >
             {STEPS.map((s) => (
               <li
                 key={s.id}
-                className="mo-pc__step"
                 style={{
                   cursor: "pointer",
-                  opacity: activeStep === s.id ? 1 : 0.65,
-                  transition: "opacity 0.2s ease",
+                  padding: "16px 20px",
+                  borderRadius: "8px",
+                  background:
+                    activeStep === s.id
+                      ? "rgba(255,255,255,0.04)"
+                      : "transparent",
+                  borderLeft:
+                    activeStep === s.id
+                      ? "3px solid var(--p-accent)"
+                      : "3px solid rgba(255,255,255,0.12)",
+                  transition: "all 0.15s ease",
                 }}
                 onClick={() => setActiveStep(s.id)}
               >
                 <h3
                   style={{
-                    color: activeStep === s.id ? "var(--p-accent)" : "inherit",
+                    fontSize: "16px",
+                    fontWeight: 500,
+                    color: activeStep === s.id ? "var(--p-accent)" : "#ffffff",
+                    marginBottom: "4px",
                   }}
                 >
                   {s.title}
                 </h3>
-                <p>{s.desc}</p>
+                <p
+                  style={{
+                    fontSize: "13.5px",
+                    color: "var(--p-muted)",
+                    margin: 0,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {s.desc}
+                </p>
                 <div className="block lg:hidden mt-3">{s.visual}</div>
               </li>
             ))}
           </ol>
         </div>
 
-        <div className="mo-pc__visuals frame hidden lg:flex flex-col justify-center">
+        <div className="frame hidden lg:flex flex-col justify-center">
           {STEPS.find((s) => s.id === activeStep)?.visual}
         </div>
       </div>

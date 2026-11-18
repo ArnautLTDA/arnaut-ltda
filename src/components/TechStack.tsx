@@ -12,43 +12,43 @@ interface SpokeNode {
 
 const SPOKES: SpokeNode[] = [
   {
-    name: "Postgres",
+    name: "Base de Dados",
     role: "Persistência Relacional",
     icon: "/assets/icons/postgres.svg",
     x: 140,
     y: 80,
   },
   {
-    name: "Redis",
-    role: "Cache & Sessões Rápidas",
+    name: "Motor de IA",
+    role: "Agentes & Raciocínio",
     icon: "/assets/icons/redis.svg",
     x: 500,
     y: 80,
   },
   {
-    name: "Kafka",
-    role: "Streaming de Eventos",
+    name: "Mensageria",
+    role: "WhatsApp Gateway",
     icon: "/assets/icons/kafka.svg",
     x: 540,
     y: 190,
   },
   {
-    name: "Stripe",
-    role: "Pagamentos Globais",
+    name: "Pagamentos",
+    role: "Banco Inter PIX mTLS",
     icon: "/assets/icons/stripe.svg",
     x: 500,
     y: 300,
   },
   {
-    name: "Sentry",
-    role: "Monitoramento & Falhas",
+    name: "Segurança",
+    role: "5 Motores de Auditoria",
     icon: "/assets/icons/sentry.svg",
     x: 140,
     y: 300,
   },
   {
-    name: "Grafana",
-    role: "Métricas & Observabilidade",
+    name: "Cockpit",
+    role: "Painel de Gestão",
     icon: "/assets/icons/grafana.svg",
     x: 100,
     y: 190,
@@ -62,19 +62,13 @@ export default function TechStack() {
   const cy = 190;
 
   return (
-    <section
-      className="section"
-      id="stack"
-      style={{ "--h": 1 } as React.CSSProperties}
-      aria-labelledby="stack-h"
-    >
+    <section className="section" id="stack" aria-labelledby="stack-h">
       <div className="wrap">
         <div className="section-head">
           <h2 id="stack-h">
-            Integrações de infraestrutura e tecnologias suportadas.{" "}
+            Módulos integrados do The Agency.{" "}
             <span className="muted">
-              Conexão direta com bancos de dados, mensageria e ferramentas de
-              segurança.
+              Tecnologia de ponta por dentro, simplicidade absoluta por fora.
             </span>
           </h2>
         </div>
@@ -82,7 +76,7 @@ export default function TechStack() {
         <div
           className="panel relative overflow-hidden flex items-center justify-center min-h-[260px] md:min-h-[380px] max-h-[440px]"
           role="img"
-          aria-label="Diagrama de tecnologias e infraestrutura suportada"
+          aria-label="Diagrama de módulos e tecnologias integradas no The Agency"
           style={{
             background: "#141414",
             border: "1px solid rgba(255, 255, 255, 0.08)",
@@ -138,36 +132,36 @@ export default function TechStack() {
                 );
               })}
 
-              {/* Center Core API Node */}
+              {/* Center Core The Agency Node */}
               <g
                 transform={`translate(${cx}, ${cy})`}
                 className="cursor-pointer"
               >
                 <circle
-                  r="34"
+                  r="38"
                   fill="#1a1a1a"
                   stroke="var(--p-accent)"
                   strokeWidth="2"
                   filter="url(#hub-glow)"
                 />
-                <circle r="24" fill="rgba(218, 250, 156, 0.1)" />
+                <circle r="28" fill="rgba(218, 250, 156, 0.1)" />
                 <image
                   href="/assets/icons/ui-server.svg"
                   x="-11"
-                  y="-16"
+                  y="-18"
                   width="22"
                   height="22"
                 />
                 <text
-                  y="16"
+                  y="14"
                   textAnchor="middle"
                   fill="#ffffff"
-                  fontSize="11"
+                  fontSize="9.5"
                   fontFamily="var(--font-mono)"
                   fontWeight="600"
-                  letterSpacing="0.05em"
+                  letterSpacing="0.04em"
                 >
-                  API
+                  THE AGENCY
                 </text>
               </g>
 

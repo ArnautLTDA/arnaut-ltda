@@ -26,17 +26,22 @@ export default function Navbar() {
           </div>
           <div className="nav__item">
             <a className="nav__link" href="/#pillars">
-              Pilares
+              O Produto
             </a>
           </div>
           <div className="nav__item">
             <a className="nav__link" href="/#lifecycle">
-              Ciclo
+              Como Funciona
+            </a>
+          </div>
+          <div className="nav__item">
+            <a className="nav__link" href="/#metrics">
+              Métricas
             </a>
           </div>
           <div className="nav__item">
             <a className="nav__link" href="/#stack">
-              Tecnologias
+              Tecnologia
             </a>
           </div>
           <div className="nav__item">
@@ -48,7 +53,7 @@ export default function Navbar() {
 
         <div className="nav__actions">
           <a className="btn btn--primary" href="/#contact">
-            Solicitar proposta
+            Entrar na lista de espera
           </a>
         </div>
 
@@ -99,21 +104,28 @@ export default function Navbar() {
             href="/#pillars"
             onClick={() => setIsOpen(false)}
           >
-            Pilares
+            O Produto
           </a>
           <a
             className="text-sm py-2 text-white/90 hover:text-white"
             href="/#lifecycle"
             onClick={() => setIsOpen(false)}
           >
-            Ciclo
+            Como Funciona
+          </a>
+          <a
+            className="text-sm py-2 text-white/90 hover:text-white"
+            href="/#metrics"
+            onClick={() => setIsOpen(false)}
+          >
+            Métricas
           </a>
           <a
             className="text-sm py-2 text-white/90 hover:text-white"
             href="/#stack"
             onClick={() => setIsOpen(false)}
           >
-            Tecnologias
+            Tecnologia
           </a>
           <a
             className="text-sm py-2 text-white/90 hover:text-white"
@@ -128,7 +140,7 @@ export default function Navbar() {
               href="/#contact"
               onClick={() => setIsOpen(false)}
             >
-              Solicitar proposta
+              Entrar na lista de espera
             </a>
           </div>
         </div>

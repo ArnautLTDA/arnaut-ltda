@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Termos de Uso e Serviço · Arnaut LTDA",
   description:
-    "Termos de prestação de serviços de engenharia e desenvolvimento de software da Arnaut LTDA.",
+    "Termos de uso da plataforma The Agency e dos produtos tecnológicos da Arnaut LTDA.",
 };
 
 export default function TermsPage() {
@@ -24,40 +24,44 @@ export default function TermsPage() {
           &larr; Voltar para a página inicial
         </Link>
         <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-8">
-          Termos de Serviço
+          Termos de Serviço da Plataforma
         </h1>
         <p className="text-base leading-relaxed text-[#d0d7cf] mb-6">
-          Estes termos regem o relacionamento comercial e as entregas de
-          software executadas pela <strong>Arnaut LTDA</strong>.
+          Estes termos regem o acesso, licença e operação da plataforma{" "}
+          <strong>The Agency</strong> e dos produtos tecnológicos fornecidos
+          pela <strong>Arnaut LTDA</strong>.
         </p>
 
         <h2 className="text-xl font-medium mt-10 mb-4 text-[var(--p-accent)]">
-          1. Propriedade Intelectual e Código-Fonte
+          1. Objeto e Natureza da Plataforma
         </h2>
         <p className="text-base leading-relaxed text-[#d0d7cf] mb-6">
-          O cliente adquire a titularidade integral sobre todo o código-fonte
-          desenvolvido sob encomenda, esquemas de banco de dados, fluxos de
-          automação e documentações criadas especificamente para o seu projeto,
-          mediante a quitação dos marcos acordados.
+          A Arnaut LTDA fornece soluções de software e plataformas de
+          inteligência artificial. O produto The Agency consiste em uma
+          plataforma de automação para que operadores e empreendedores criem e
+          gerenciem suas próprias soluções e agências de software com auxílio de
+          agentes cognitivos autônomos.
         </p>
 
         <h2 className="text-xl font-medium mt-10 mb-4 text-[var(--p-accent)]">
-          2. Garantia de Qualidade e Critérios de Aceite
+          2. Propriedade Intelectual e Código Gerado
         </h2>
         <p className="text-base leading-relaxed text-[#d0d7cf] mb-6">
-          Todas as entregas são formalizadas por meio de especificações em BDD
-          Gherkin e suítes de testes automatizados com cobertura mínima de 80%.
-          O projeto só é considerado concluído após a aprovação de todos os
-          gates de segurança e testes de homologação.
+          A Arnaut LTDA detém a titularidade sobre a plataforma The Agency e
+          seus motores cognitivos. Todo o código-fonte de projetos finais
+          gerados pela plataforma para os clientes do operador é transferido de
+          forma integral sem vendor lock-in, com padrões abertos em TypeScript,
+          Next.js e Clean Architecture.
         </p>
 
         <h2 className="text-xl font-medium mt-10 mb-4 text-[var(--p-accent)]">
-          3. Acordo de Nível de Serviço (SLA)
+          3. Garantia de Qualidade e Segurança
         </h2>
         <p className="text-base leading-relaxed text-[#d0d7cf] mb-6">
-          Para contratos de esteira contínua (The Agency) e squads dedicados, os
-          tempos de resposta, janelas de manutenção e métricas de
-          disponibilidade são formalizados em anexo contratual específico.
+          A plataforma aplica portões obrigatórios de qualidade técnica:
+          cobertura mínima de 80% em suítes de testes automatizados e varreduras
+          de segurança com múltiplos motores estáticos e dinâmicos antes da
+          entrega de qualquer solução em produção.
         </p>
 
         <h2 className="text-xl font-medium mt-10 mb-4 text-[var(--p-accent)]">

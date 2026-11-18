@@ -5,18 +5,16 @@ import { useState } from "react";
 interface FormState {
   name: string;
   email: string;
-  type: string;
-  project: string;
-  tech: string;
+  experience: string;
+  interest: string;
   website_url?: string;
 }
 
 const INITIAL_FORM: FormState = {
   name: "",
   email: "",
-  type: "esteira",
-  project: "",
-  tech: "",
+  experience: "nenhuma",
+  interest: "",
   website_url: "",
 };
 
@@ -48,20 +46,16 @@ export default function ContactSection() {
     setErrorMessage(null);
     setFieldErrors({});
 
-    // Basic client-side check
     const errors: Record<string, string> = {};
     if (!formData.name.trim() || formData.name.trim().length < 2) {
       errors.name = "Informe seu nome completo (mínimo 2 caracteres).";
     }
     if (!formData.email.trim() || !formData.email.includes("@")) {
-      errors.email = "Informe um e-mail corporativo válido.";
+      errors.email = "Informe um e-mail válido para contato.";
     }
-    if (!formData.project.trim() || formData.project.trim().length < 5) {
-      errors.project =
-        "Descreva o escopo técnico do projeto (mínimo 5 caracteres).";
-    }
-    if (!formData.tech.trim() || formData.tech.trim().length < 2) {
-      errors.tech = "Informe as principais tecnologias do projeto.";
+    if (!formData.interest.trim() || formData.interest.trim().length < 3) {
+      errors.interest =
+        "Descreva brevemente o que te atrai no The Agency (mínimo 3 caracteres).";
     }
 
     if (Object.keys(errors).length > 0) {
@@ -86,7 +80,7 @@ export default function ContactSection() {
         }
         setErrorMessage(
           data.error ||
-            "Houve um problema ao enviar sua solicitação. Por favor, envie diretamente para contato@arnaut.dev.br.",
+            "Houve um problema ao processar seu cadastro. Por favor, envie diretamente para contato@arnaut.dev.br.",
         );
       } else {
         setSuccessMessage(data.message);
@@ -94,7 +88,7 @@ export default function ContactSection() {
       }
     } catch {
       setErrorMessage(
-        "Erro de conexão ao enviar proposta. Por favor, tente novamente ou contate contato@arnaut.dev.br.",
+        "Erro de conexão ao enviar inscrição. Por favor, tente novamente ou contate contato@arnaut.dev.br.",
       );
     } finally {
       setIsSubmitting(false);
@@ -102,15 +96,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      className="section"
-      id="contact"
-      style={{ "--h": 1 } as React.CSSProperties}
-      aria-labelledby="contact-h"
-    >
+    <section className="section" id="contact" aria-labelledby="contact-h">
       <div className="wrap">
         <div className="grid">
-          {/* Left: Guarantee Card */}
+          {/* Left: Founder Benefits Card */}
           <div className="span-6 guarantee-card">
             <div>
               <div
@@ -129,8 +118,7 @@ export default function ContactSection() {
                   stroke="var(--p-accent)"
                   strokeWidth="2"
                 >
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
                 <div>
                   <h3
@@ -142,10 +130,10 @@ export default function ContactSection() {
                       margin: 0,
                     }}
                   >
-                    Garantia de Confidencialidade e SLA Técnico
+                    Acesso Antecipado & Vantagens de Fundador
                   </h3>
                   <div style={{ fontSize: "12px", color: "var(--p-muted)" }}>
-                    Acordo de Não Divulgação (NDA) Bilateral
+                    Lista de Espera Oficial · The Agency
                   </div>
                 </div>
               </div>
@@ -158,9 +146,9 @@ export default function ContactSection() {
                   marginBottom: "20px",
                 }}
               >
-                Assinamos acordo de confidencialidade mútuo antes de qualquer
-                compartilhamento de código, credencial ou especificação de
-                arquitetura.
+                The Agency está em fase de acesso antecipado (MVP). Cadastre-se
+                na lista de espera para ser um dos primeiros operadores e
+                garantir benefícios exclusivos de lançamento.
               </p>
 
               <div
@@ -185,7 +173,7 @@ export default function ContactSection() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span>
-                    Diagnóstico preliminar e viabilidade técnica em até 24 horas
+                    Acesso prioritário ao MVP antes do lançamento público
                   </span>
                 </div>
                 <div
@@ -207,8 +195,50 @@ export default function ContactSection() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span>
-                    Confinamento estrito de chaves em contêineres sem acesso
-                    externo
+                    Condições comerciais de fundador (preço exclusivo
+                    permanente)
+                  </span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "10px",
+                    fontSize: "12px",
+                    color: "var(--p-ink)",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--p-accent)"
+                    strokeWidth="2"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Canal direto com a equipe de engenharia e produto</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "10px",
+                    fontSize: "12px",
+                    color: "var(--p-ink)",
+                  }}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="var(--p-accent)"
+                    strokeWidth="2"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>
+                    Participação ativa no direcionamento de novas integrações
                   </span>
                 </div>
                 <div
@@ -230,53 +260,7 @@ export default function ContactSection() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   <span>
-                    Transferência de propriedade intelectual registrada em
-                    contrato
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    fontSize: "12px",
-                    color: "var(--p-ink)",
-                  }}
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--p-accent)"
-                    strokeWidth="2"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span>
-                    Relatórios contínuos de qualidade SonarQube e Semgrep
-                  </span>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "10px",
-                    fontSize: "12px",
-                    color: "var(--p-ink)",
-                  }}
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--p-accent)"
-                    strokeWidth="2"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  <span>
-                    Suporte técnico de prontidão com engenheiros baseados em São
-                    Paulo
+                    Suporte dedicado na calibração dos seus primeiros nichos
                   </span>
                 </div>
               </div>
@@ -293,15 +277,15 @@ export default function ContactSection() {
               }}
             >
               <div>
-                Sede operacional:{" "}
+                Sede de produto:{" "}
                 <strong style={{ color: "#fff" }}>São Paulo, SP</strong>
               </div>
               <div>
-                Engenharia responsável:{" "}
+                Desenvolvido por:{" "}
                 <strong style={{ color: "#fff" }}>Arnaut LTDA</strong>
               </div>
               <div>
-                Canal técnico direto:{" "}
+                Canal técnico e parcerias:{" "}
                 <a
                   href="mailto:contato@arnaut.dev.br"
                   className="text-[var(--p-accent)] hover:underline"
@@ -312,7 +296,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right: Functional Quote Form */}
+          {/* Right: Waitlist Form */}
           <div
             className="span-6 start-7 guarantee-card"
             style={{
@@ -340,21 +324,21 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-medium text-white mb-2">
-                  Solicitação enviada com sucesso!
+                  Inscrição confirmada na lista de espera!
                 </h3>
                 <p className="text-sm text-white/80 max-w-md mb-6 leading-relaxed">
                   {successMessage}
                 </p>
                 <p className="text-xs text-white/50 mb-6">
-                  Nossos engenheiros receberam seus dados em{" "}
-                  <strong>contato@arnaut.dev.br</strong> e retornarão em breve.
+                  Seu convite prioritário será enviado diretamente pela equipe
+                  da Arnaut LTDA.
                 </p>
                 <button
                   type="button"
                   className="btn btn--secondary"
                   onClick={() => setSuccessMessage(null)}
                 >
-                  Enviar outra solicitação
+                  Cadastrar outro e-mail
                 </button>
               </div>
             ) : (
@@ -389,6 +373,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     autoComplete="name"
+                    placeholder="Seu nome ou razão social"
                     required
                     aria-invalid={!!fieldErrors.name}
                     aria-describedby={
@@ -406,7 +391,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="field">
-                  <label htmlFor="f-email">E-mail corporativo</label>
+                  <label htmlFor="f-email">E-mail para convite</label>
                   <input
                     id="f-email"
                     name="email"
@@ -415,6 +400,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     autoComplete="email"
                     inputMode="email"
+                    placeholder="voce@exemplo.com.br"
                     required
                     aria-invalid={!!fieldErrors.email}
                     aria-describedby={
@@ -432,11 +418,13 @@ export default function ContactSection() {
                 </div>
 
                 <div className="field">
-                  <label htmlFor="f-type">Modalidade de contratação</label>
+                  <label htmlFor="f-experience">
+                    Sua experiência prévia com tecnologia
+                  </label>
                   <select
-                    id="f-type"
-                    name="type"
-                    value={formData.type}
+                    id="f-experience"
+                    name="experience"
+                    value={formData.experience}
                     onChange={handleChange}
                     required
                     style={{
@@ -453,74 +441,56 @@ export default function ContactSection() {
                     }}
                   >
                     <option
-                      value="esteira"
+                      value="nenhuma"
                       style={{ background: "#1a1a1a", color: "#fff" }}
                     >
-                      Desenvolvimento com esteira The Agency
+                      Nenhuma (quero que a IA opere 100%)
                     </option>
                     <option
-                      value="poc"
+                      value="basica"
                       style={{ background: "#1a1a1a", color: "#fff" }}
                     >
-                      PoC de Automação e Validação
+                      Básica (conheço conceitos gerais)
                     </option>
                     <option
-                      value="auditoria"
+                      value="intermediaria"
                       style={{ background: "#1a1a1a", color: "#fff" }}
                     >
-                      Auditoria de Segurança e Débito Técnico
+                      Intermediária (já usei no-code ou ferramentas digitais)
+                    </option>
+                    <option
+                      value="avancada"
+                      style={{ background: "#1a1a1a", color: "#fff" }}
+                    >
+                      Avançada (já programo ou sou técnico)
                     </option>
                   </select>
                 </div>
 
                 <div className="field">
-                  <label htmlFor="f-project">Escopo técnico do projeto</label>
+                  <label htmlFor="f-interest">
+                    O que mais te atrai em ter sua própria agência de software?
+                  </label>
                   <input
-                    id="f-project"
-                    name="project"
+                    id="f-interest"
+                    name="interest"
                     type="text"
-                    value={formData.project}
+                    value={formData.interest}
                     onChange={handleChange}
                     autoComplete="off"
-                    placeholder="Ex.: Microsserviços de pagamento, mensageria ou testes"
+                    placeholder="Ex.: Quero atender barbearias e clínicas na minha cidade"
                     required
-                    aria-invalid={!!fieldErrors.project}
+                    aria-invalid={!!fieldErrors.interest}
                     aria-describedby={
-                      fieldErrors.project ? "f-project-err" : undefined
+                      fieldErrors.interest ? "f-interest-err" : undefined
                     }
                   />
-                  {fieldErrors.project && (
+                  {fieldErrors.interest && (
                     <p
                       className="field__error text-xs text-red-400 mt-1"
-                      id="f-project-err"
+                      id="f-interest-err"
                     >
-                      {fieldErrors.project}
-                    </p>
-                  )}
-                </div>
-
-                <div className="field">
-                  <label htmlFor="f-tech">Stack tecnológica prioritária</label>
-                  <input
-                    id="f-tech"
-                    name="tech"
-                    type="text"
-                    value={formData.tech}
-                    onChange={handleChange}
-                    autoComplete="off"
-                    placeholder="Ex.: Python, TypeScript, Docker, Postgres"
-                    required
-                    aria-invalid={!!fieldErrors.tech}
-                    aria-describedby={
-                      fieldErrors.tech ? "f-tech-err" : undefined
-                    }
-                  />
-                  {fieldErrors.tech && (
-                    <p
-                      className="field__error text-xs text-red-400 mt-1"
-                      id="f-tech-err"
-                    >
-                      {fieldErrors.tech}
+                      {fieldErrors.interest}
                     </p>
                   )}
                 </div>
@@ -533,14 +503,14 @@ export default function ContactSection() {
                     style={{ width: "100%", opacity: isSubmitting ? 0.7 : 1 }}
                   >
                     {isSubmitting
-                      ? "Enviando proposta..."
-                      : "Solicitar proposta"}
+                      ? "Registrando inscrição..."
+                      : "Entrar na lista de espera"}
                   </button>
                 </div>
 
                 <p className="t-small muted" style={{ margin: 0 }}>
-                  Retornamos em até 24 horas úteis com minuta de NDA
-                  pré-assinada.
+                  Vagas limitadas para a primeira turma de fundadores e early
+                  adopters.
                 </p>
               </form>
             )}

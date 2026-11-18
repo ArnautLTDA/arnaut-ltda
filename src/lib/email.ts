@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { QuoteRequest, MODALIDADE_LABELS } from "./validations";
+import { WaitlistRequest, EXPERIENCE_LABELS } from "./validations";
 
 export interface SendEmailResult {
   success: boolean;
@@ -10,25 +10,24 @@ export interface SendEmailResult {
 
 const DEFAULT_TARGET_EMAIL = "contato@arnaut.dev.br";
 
-export async function sendQuoteEmail(
-  data: QuoteRequest,
+export async function sendWaitlistEmail(
+  data: WaitlistRequest,
 ): Promise<SendEmailResult> {
   const targetEmail = process.env.NOTIFICATION_EMAIL || DEFAULT_TARGET_EMAIL;
-  const modalidadeLabel = MODALIDADE_LABELS[data.type] || data.type;
+  const experienceLabel = EXPERIENCE_LABELS[data.experience] || data.experience;
   const timestamp = new Date().toLocaleString("pt-BR", {
     timeZone: "America/Sao_Paulo",
   });
 
-  const subject = `[Nova Solicitação de Proposta] ${data.name} - ${modalidadeLabel}`;
+  const subject = `[Lista de Espera The Agency] ${data.name} - ${experienceLabel}`;
 
   const textContent = `
-Nova solicitação de orçamento recebida via site oficial Arnaut LTDA:
+Novo cadastro na lista de espera do The Agency (Arnaut LTDA):
 
 - Nome Completo: ${data.name}
-- E-mail Corporativo: ${data.email}
-- Modalidade: ${modalidadeLabel}
-- Escopo Técnico: ${data.project}
-- Stack Tecnológica: ${data.tech}
+- E-mail: ${data.email}
+- Nível de Experiência: ${experienceLabel}
+- Interesse no Produto: ${data.interest}
 - Data e Hora: ${timestamp} (Horário de Brasília)
 
 Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.email}).
@@ -39,7 +38,7 @@ Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.emai
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Nova Solicitação de Proposta</title>
+  <title>Novo Cadastro na Lista de Espera - The Agency</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -111,8 +110,8 @@ Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.emai
 <body>
   <div class="container">
     <div class="header">
-      <span class="badge">Novo Lead Arnaut LTDA</span>
-      <h1>Solicitação de Proposta Comercial</h1>
+      <span class="badge">Early Access · The Agency</span>
+      <h1>Inscrição na Lista de Espera</h1>
       <p style="margin: 0; color: #a8b3a8; font-size: 13px;">Recebido em ${timestamp} (Horário de Brasília)</p>
     </div>
 
@@ -122,27 +121,22 @@ Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.emai
     </div>
 
     <div class="field">
-      <div class="label">E-mail Corporativo</div>
+      <div class="label">E-mail para Convite</div>
       <div class="value"><a href="mailto:${escapeHtml(data.email)}" style="color: #dafa9c; text-decoration: none;">${escapeHtml(data.email)}</a></div>
     </div>
 
     <div class="field">
-      <div class="label">Modalidade de Contratação</div>
-      <div class="value">${escapeHtml(modalidadeLabel)}</div>
+      <div class="label">Experiência com Tecnologia</div>
+      <div class="value">${escapeHtml(experienceLabel)}</div>
     </div>
 
     <div class="field">
-      <div class="label">Escopo Técnico do Projeto</div>
-      <div class="value" style="white-space: pre-wrap;">${escapeHtml(data.project)}</div>
-    </div>
-
-    <div class="field">
-      <div class="label">Stack Tecnológica Prioritária</div>
-      <div class="value">${escapeHtml(data.tech)}</div>
+      <div class="label">Interesse no The Agency</div>
+      <div class="value" style="white-space: pre-wrap;">${escapeHtml(data.interest)}</div>
     </div>
 
     <div class="footer">
-      Arnaut LTDA · Software house de engenharia autônoma para sistemas críticos<br>
+      Arnaut LTDA · Plataforma AI-native para criação de agências de software autônomas<br>
       E-mail de destino configurado: <strong>${escapeHtml(targetEmail)}</strong>
     </div>
   </div>
@@ -159,7 +153,8 @@ Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.emai
     try {
       const port = Number(process.env.SMTP_PORT) || 587;
       const secure = process.env.SMTP_SECURE === "true" || port === 465;
-      const from = process.env.SMTP_FROM || `"Arnaut LTDA" <${smtpUser}>`;
+      const from =
+        process.env.SMTP_FROM || `"The Agency by Arnaut" <${smtpUser}>`;
 
       const transporter = nodemailer.createTransport({
         host: smtpHost,
@@ -198,8 +193,7 @@ Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.emai
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from:
-            process.env.RESEND_FROM || "Arnaut LTDA <onboarding@resend.dev>",
+          from: process.env.RESEND_FROM || "The Agency <onboarding@resend.dev>",
           to: [targetEmail],
           reply_to: data.email,
           subject,
@@ -222,13 +216,14 @@ Para responder, basta responder diretamente a este e-mail (Reply-To: ${data.emai
   }
 
   // 3. Fallback: Development / Unconfigured credentials
-  // Structured logging for local verification and CI/testing without failing the lead submission
   return {
     success: true,
     simulated: true,
     messageId: `simulated-${Date.now()}`,
   };
 }
+
+export const sendQuoteEmail = sendWaitlistEmail;
 
 function escapeHtml(text: string): string {
   return text

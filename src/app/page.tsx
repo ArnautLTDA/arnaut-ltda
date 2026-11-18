@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import AgencyEngine from "@/components/AgencyEngine";
 import Pillars from "@/components/Pillars";
 import Lifecycle from "@/components/Lifecycle";
+import Metrics from "@/components/Metrics";
 import TechStack from "@/components/TechStack";
 import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
         <AgencyEngine />
         <Pillars />
         <Lifecycle />
+        <Metrics />
         <TechStack />
         <FAQ />
         <ContactSection />

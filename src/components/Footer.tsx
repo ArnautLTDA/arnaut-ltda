@@ -7,16 +7,14 @@ export default function Footer() {
         <div className="closing__cta close--word">
           <div className="section-head--split">
             <div>
-              <h2 id="close-h">
-                Inicie o seu próximo projeto com a Arnaut LTDA
-              </h2>
+              <h2 id="close-h">Seu negócio de tecnologia começa aqui.</h2>
               <p className="t-lead">
-                Desenvolvimento ágil com esteira de agentes e garantia total de
-                testes.
+                Sem código. Sem equipe. Sem complicação. Garanta sua vaga na
+                lista de espera do The Agency.
               </p>
             </div>
             <a className="btn btn--primary" href="#contact">
-              Solicitar proposta
+              Entrar na lista de espera
             </a>
           </div>
           <p className="close__word" aria-hidden="true">
@@ -43,8 +41,8 @@ export default function Footer() {
                   marginTop: "8px",
                 }}
               >
-                Software house brasileira de engenharia autônoma para sistemas
-                críticos.
+                Arnaut LTDA — Produtos de tecnologia que democratizam negócios
+                digitais. São Paulo, Brasil.
               </p>
             </div>
 
@@ -55,10 +53,10 @@ export default function Footer() {
                   <a href="/#agency">The Agency</a>
                 </li>
                 <li>
-                  <a href="/#pillars">Pilares de Segurança</a>
+                  <a href="/#pillars">O Produto</a>
                 </li>
                 <li>
-                  <a href="/#lifecycle">Ciclo Autônomo</a>
+                  <a href="/#lifecycle">Como Funciona</a>
                 </li>
               </ul>
             </div>
@@ -67,7 +65,10 @@ export default function Footer() {
               <h3>Empresa</h3>
               <ul>
                 <li>
-                  <a href="/#stack">Pilha Tecnológica</a>
+                  <a href="/#metrics">Métricas</a>
+                </li>
+                <li>
+                  <a href="/#stack">Tecnologia</a>
                 </li>
                 <li>
                   <a href="/#faq">Perguntas Frequentes</a>
@@ -79,7 +80,7 @@ export default function Footer() {
               <h3>Contato</h3>
               <ul>
                 <li>
-                  <a href="/#contact">Solicitar proposta</a>
+                  <a href="/#contact">Lista de Espera</a>
                 </li>
                 <li>
                   <a

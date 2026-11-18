@@ -20,11 +20,11 @@ test.describe("Arnaut LTDA Institutional Website E2E & Responsiveness", () => {
     const heroTitle = page.locator("#hero-h");
     await expect(heroTitle).toBeVisible();
     await expect(heroTitle).toContainText(
-      "Software house de engenharia autônoma para sistemas críticos",
+      "Tenha sua própria agência de software. Sem saber programar.",
     );
   });
 
-  test("should verify plans/pricing section is completely removed", async ({
+  test("should verify plans/pricing section is replaced by early access waitlist", async ({
     page,
   }) => {
     await page.goto("/");
@@ -37,11 +37,9 @@ test.describe("Arnaut LTDA Institutional Website E2E & Responsiveness", () => {
     const navPlanos = page.locator('nav.nav__links a:has-text("Planos")');
     await expect(navPlanos).toHaveCount(0);
 
-    // 3. No Modelos de Contrato in footer
-    const footerPlanos = page.locator(
-      'footer a:has-text("Modelos de Contrato")',
-    );
-    await expect(footerPlanos).toHaveCount(0);
+    // 3. Waitlist CTA present in nav
+    const navWaitlist = page.locator('a:has-text("Entrar na lista de espera")');
+    await expect(navWaitlist.first()).toBeVisible();
   });
 
   test("should have all primary sections properly rendered and visible", async ({
@@ -63,23 +61,29 @@ test.describe("Arnaut LTDA Institutional Website E2E & Responsiveness", () => {
     // Lifecycle
     await expect(page.locator("#lifecycle")).toBeVisible();
     await expect(page.locator("#lifecycle-h")).toContainText(
-      "Ciclo de desenvolvimento",
+      "De zero a sua agência de software",
+    );
+
+    // Metrics
+    await expect(page.locator("#metrics")).toBeVisible();
+    await expect(page.locator("#metrics-h")).toContainText(
+      "A oportunidade. A tecnologia. Os números.",
     );
 
     // Tech Stack
     await expect(page.locator("#stack")).toBeVisible();
     await expect(page.locator("#stack-h")).toContainText(
-      "Integrações de infraestrutura",
+      "Módulos integrados do The Agency",
     );
 
     // FAQ
     await expect(page.locator("#faq")).toBeVisible();
     await expect(page.locator("#faq-h")).toContainText("Perguntas frequentes");
 
-    // Contact
+    // Contact (Waitlist)
     await expect(page.locator("#contact")).toBeVisible();
     await expect(page.locator("#contact-h")).toContainText(
-      "Garantia de Confidencialidade",
+      "Acesso Antecipado & Vantagens de Fundador",
     );
   });
 
@@ -110,9 +114,7 @@ test.describe("Arnaut LTDA Institutional Website E2E & Responsiveness", () => {
     expect(largeImagesCount).toBe(0);
   });
 
-  test("should validate and submit quote request sending email to contato@arnaut.dev.br", async ({
-    page,
-  }) => {
+  test("should validate and submit waitlist registration", async ({ page }) => {
     await page.goto("/");
 
     const form = page.locator("#contact form");
@@ -125,15 +127,14 @@ test.describe("Arnaut LTDA Institutional Website E2E & Responsiveness", () => {
     await expect(page.locator("#f-name-err")).toBeVisible();
     await expect(page.locator("#f-email-err")).toBeVisible();
 
-    // 2. Fill form with valid lead data
+    // 2. Fill form with valid waitlist data
     await page.fill("#f-name", "Marina Fonseca");
     await page.fill("#f-email", "marina.fonseca@empresa.com.br");
-    await page.selectOption("#f-type", "esteira");
+    await page.selectOption("#f-experience", "basica");
     await page.fill(
-      "#f-project",
-      "Modernização de microsserviços de pagamento com esteira autônoma e mTLS",
+      "#f-interest",
+      "Quero abrir uma agência de tecnologia focada em clínicas odontológicas",
     );
-    await page.fill("#f-tech", "TypeScript, Python, FastAPI, Docker, RabbitMQ");
 
     // 3. Submit valid form
     await form.locator('button[type="submit"]').click();
@@ -141,8 +142,9 @@ test.describe("Arnaut LTDA Institutional Website E2E & Responsiveness", () => {
     // 4. Verify success state appears
     const successCard = page.locator('[role="status"]');
     await expect(successCard).toBeVisible({ timeout: 10000 });
-    await expect(successCard).toContainText("Solicitação enviada com sucesso");
-    await expect(successCard).toContainText("contato@arnaut.dev.br");
+    await expect(successCard).toContainText(
+      "Inscrição confirmada na lista de espera",
+    );
   });
 
   test("should render legal subpages properly", async ({ page }) => {

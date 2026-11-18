@@ -15,48 +15,48 @@ interface ServiceData {
 
 const SERVICES: ServiceData[] = [
   {
-    id: "engine",
-    badge: "EN",
+    id: "prospecting",
+    badge: "PL",
     badgeBg: "#dafa9c",
-    name: "Engine Central",
+    name: "Prospecção de Leads",
     status: "Ativo",
-    desc: "Orquestração LangGraph confinada",
-    cmd: "the-agency status --all --verify",
+    desc: "12 leads qualificados no pipeline",
+    cmd: "the-agency pipeline --prospect --niche=barbearias",
     logs: [
-      "✓ Pipeline aprovado no Security Gate com 0 vulnerabilidades",
-      "✓ Conexão mTLS Banco Inter estabelecida com sucesso",
-      "✓ 31 suítes de teste unitário e integração executadas: 100% PASS",
-      "[LIVE] Fila assíncrona RabbitMQ processando 14 tarefas em paralelo",
+      "✓ 12 leads minerados no Google Maps (nicho: barbearias, São Paulo)",
+      "✓ Números de WhatsApp validados via gateway autônomo (100% ativos)",
+      "✓ Dores e reclamações de clientes extraídas de avaliações 1-3 estrelas",
+      "[LIVE] Taxa de qualificação de leads: 83.3% (Prontos para prototipação)",
     ],
   },
   {
-    id: "whatsapp",
-    badge: "WP",
+    id: "prototyping",
+    badge: "PR",
     badgeBg: "#8fbcff",
-    name: "WhatsApp Gateway",
+    name: "Prototipação Rápida",
     status: "Ativo",
-    desc: "Baileys & Outbound AMQP",
-    cmd: "the-agency gateway whatsapp --healthcheck",
+    desc: "Demo gerada para Barbearia Premium",
+    cmd: "the-agency demo --generate --client=barbearia-premium",
     logs: [
-      "✓ Sessão Baileys recuperada automaticamente do storage seguro",
-      "✓ Polling de mensagens síncrono conectado via WebSocket seguro",
-      "✓ 8 workers processando disparos assíncronos na fila amqp.whatsapp",
-      "[LIVE] Latência média de disparo: 42ms (Zero timeouts nas últimas 24h)",
+      "✓ Identidade visual, fotos e catálogo do cliente minerados com sucesso",
+      "✓ Protótipo interativo Next.js gerado e auditado via Playwright (HTTP 200)",
+      "✓ Deploy instantâneo em staging publicado com URL segura na Vercel",
+      "[LIVE] Amostra funcional pronta para apresentação comercial via WhatsApp",
     ],
   },
   {
-    id: "payment",
-    badge: "PY",
+    id: "factory",
+    badge: "FD",
     badgeBg: "#dafa9c",
-    name: "Payment Gateway",
+    name: "Desenvolvimento & Deploy",
     status: "Ativo",
-    desc: "mTLS Banco Inter & Webhooks",
-    cmd: "the-agency gateway payment --test-mtls",
+    desc: "Sistema de agendamento entregue",
+    cmd: "the-agency factory --build --client=barbearia-premium",
     logs: [
-      "✓ Certificado X.509 Banco Inter carregado no contêiner isolado",
-      "✓ Handshake mTLS validado contra endpoints de emissão de PIX",
-      "✓ Webhook assinado com SHA-256 e idempotência habilitada",
-      "[LIVE] Transações operando em tempo real com 99.99% de disponibilidade",
+      "✓ Sinal de 50% confirmado via PIX automatizado com mTLS Banco Inter",
+      "✓ Código Clean Architecture gerado: 31 testes aprovados (cobertura 86%)",
+      "✓ 5 motores de segurança aprovados (Semgrep, Gitleaks, Trivy, Sonar, Nuclei)",
+      "[LIVE] Faturamento do projeto: R$ 1.200,00 | Margem líquida direta: 99.4%",
     ],
   },
 ];
@@ -75,29 +75,32 @@ export default function Hero() {
         <div className="hero-text">
           <div className="hero__c">
             <a className="pill" href="#agency">
-              <span>Arnaut LTDA · Software House</span>
-              <span className="muted">The Agency em produção</span>
+              <span>Arnaut LTDA · Produtos de Tecnologia</span>
+              <span className="muted">The Agency — nosso primeiro produto</span>
             </a>
             <h1
               id="hero-h"
-              aria-label="Software house de engenharia autônoma para sistemas críticos"
+              aria-label="Tenha sua própria agência de software. Sem saber programar."
             >
-              Software house de engenharia autônoma para sistemas críticos
+              Tenha sua própria agência de software. Sem saber programar.
             </h1>
             <p className="hero__lead">
-              Projetamos e operamos esteiras de software autônomas com agentes
-              de IA, testes contínuos e arquitetura confinada.
+              The Agency é uma plataforma completa que usa inteligência
+              artificial para prospectar clientes, criar protótipos e entregar
+              software de produção. Você controla o negócio. A IA faz o trabalho
+              técnico.
             </p>
             <span className="hero__hard-fact">
-              <strong data-fact>São Paulo, SP</strong> · 10 microsserviços
-              autônomos e 31 suítes de teste em produção
+              <strong data-fact>São Paulo, SP</strong> · Plataforma com 10
+              microsserviços autônomos, 31 suítes de teste e esteira de
+              engenharia completa em produção
             </span>
             <div className="btn-row">
               <a className="btn btn--primary" href="#contact">
-                Solicitar proposta
+                Entrar na lista de espera
               </a>
               <a className="btn btn--secondary" href="#agency">
-                Conhecer a esteira
+                Ver como funciona
               </a>
             </div>
           </div>
@@ -128,14 +131,14 @@ export default function Hero() {
                   <line x1="12" y1="19" x2="20" y2="19" />
                 </svg>
                 <span>
-                  <b>The Agency Engine</b> · AMQP v1.2
+                  <b>The Agency Engine</b> · Cockpit de Operação
                 </span>
                 <span className="sp"></span>
-                <span>10 Microsserviços Ativos · 31 Testes Verificados</span>
+                <span>3 Módulos Ativos · 31 Testes Verificados</span>
               </div>
               <div className="d-win__body">
                 <div className="inbox">
-                  <div className="q">Serviços em execução</div>
+                  <div className="q">Módulos em execução</div>
                   {SERVICES.map((srv) => (
                     <div
                       key={srv.id}

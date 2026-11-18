@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { quoteRequestSchema } from "@/lib/validations";
-import { sendQuoteEmail } from "@/lib/email";
+import { waitlistSchema } from "@/lib/validations";
+import { sendWaitlistEmail } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   try {
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const validationResult = quoteRequestSchema.safeParse(body);
+    const validationResult = waitlistSchema.safeParse(body);
     if (!validationResult.success) {
       const fieldErrors: Record<string, string> = {};
       for (const issue of validationResult.error.issues) {
@@ -35,14 +35,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const emailResult = await sendQuoteEmail(validationResult.data);
+    const emailResult = await sendWaitlistEmail(validationResult.data);
 
     if (!emailResult.success) {
       return NextResponse.json(
         {
           success: false,
           error:
-            "Houve uma falha temporária ao enviar sua solicitação. Por favor, tente novamente ou contate diretamente contato@arnaut.dev.br.",
+            "Houve uma falha temporária ao registrar sua inscrição. Por favor, tente novamente ou contate contato@arnaut.dev.br.",
         },
         { status: 500 },
       );
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
       {
         success: true,
         message:
-          "Sua solicitação de proposta foi enviada. Retornamos em até 24 horas úteis com minuta de NDA.",
+          "Sua inscrição na lista de espera foi confirmada! Você receberá nosso convite de acesso antecipado e condições de fundador por e-mail.",
         simulated: emailResult.simulated,
       },
       { status: 200 },

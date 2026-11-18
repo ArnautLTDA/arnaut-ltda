@@ -1,34 +1,35 @@
 import { z } from "zod";
 
-export const quoteRequestSchema = z.object({
+export const waitlistSchema = z.object({
   name: z
     .string({ required_error: "Informe seu nome completo." })
     .trim()
     .min(2, "Informe seu nome completo (mínimo 2 caracteres)."),
   email: z
-    .string({ required_error: "Informe um e-mail corporativo válido." })
+    .string({ required_error: "Informe um e-mail válido." })
     .trim()
-    .email("Informe um e-mail corporativo válido."),
-  type: z.enum(["esteira", "poc", "auditoria"], {
+    .email("Informe um e-mail válido para receber o convite."),
+  experience: z.enum(["nenhuma", "basica", "intermediaria", "avancada"], {
     errorMap: () => ({
-      message: "Selecione uma modalidade de contratação válida.",
+      message: "Selecione seu nível de experiência com tecnologia.",
     }),
   }),
-  project: z
-    .string({ required_error: "Descreva o escopo técnico do projeto." })
+  interest: z
+    .string({ required_error: "Conte-nos o que te atrai no The Agency." })
     .trim()
-    .min(5, "Descreva o escopo técnico do projeto (mínimo 5 caracteres)."),
-  tech: z
-    .string({ required_error: "Informe as principais tecnologias do projeto." })
-    .trim()
-    .min(2, "Informe as principais tecnologias do projeto."),
+    .min(3, "Descreva brevemente o seu interesse (mínimo 3 caracteres)."),
   website_url: z.string().optional(), // Honeypot field
 });
 
-export type QuoteRequest = z.infer<typeof quoteRequestSchema>;
+export type WaitlistRequest = z.infer<typeof waitlistSchema>;
 
-export const MODALIDADE_LABELS: Record<string, string> = {
-  esteira: "Desenvolvimento com esteira The Agency",
-  poc: "PoC de Automação e Validação",
-  auditoria: "Auditoria de Segurança e Débito Técnico",
+// Backward compatibility alias
+export const quoteRequestSchema = waitlistSchema;
+export type QuoteRequest = WaitlistRequest;
+
+export const EXPERIENCE_LABELS: Record<string, string> = {
+  nenhuma: "Nenhuma (quero que a IA opere 100%)",
+  basica: "Básica (conheço conceitos gerais)",
+  intermediaria: "Intermediária (já usei ferramentas digitais/no-code)",
+  avancada: "Avançada (já programo ou sou técnico)",
 };

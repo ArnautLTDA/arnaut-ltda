@@ -25,96 +25,112 @@ const RUNS: PipelineRun[] = [
   {
     id: "run-104",
     runNumber: "#104",
-    service: "Payment Service",
-    ref: "main",
+    service: "Clínica OdontoSorriso",
+    ref: "client/odonto-sorriso",
     time: "1m 45s",
-    status: "PASS",
-    summary: "Certificado mTLS validado contra API bancária",
-    commitMsg: "feat: esteira autônoma e gateways",
+    status: "ENTREGUE",
+    summary:
+      "Portal de agendamento online e confirmação PIX entregue em produção",
+    commitMsg: "feat: deploy em domínio próprio e ativação de suporte 90 dias",
     sha: "3f88649",
     steps: [
-      { name: "BDD Specs", cmd: "gherkin-lint", time: "2s", status: "done" },
-      { name: "Testes TDD", cmd: "pytest -v", time: "31s", status: "done" },
-      { name: "Segurança", cmd: "security-gate", time: "18s", status: "done" },
-      { name: "Deploy Prod", cmd: "triple-gate", time: "30s", status: "done" },
+      {
+        name: "Mineração Maps",
+        cmd: "osint-enrich",
+        time: "12s",
+        status: "done",
+      },
+      { name: "Demo Vercel", cmd: "demo-build", time: "31s", status: "done" },
+      {
+        name: "Testes Playwright",
+        cmd: "qa-audit --cov=88%",
+        time: "18s",
+        status: "done",
+      },
+      {
+        name: "Deploy & PIX",
+        cmd: "handover-prod",
+        time: "30s",
+        status: "done",
+      },
     ],
     logs: [
-      "$ pytest services/payment --cov=src",
-      "17 passed, 0 warnings. Cobertura de testes: 84%",
-      "$ gitleaks detect --source=. --verbose",
-      "0 leaks found. Verificação de segredos concluída com sucesso",
-      "$ sonarqube-scan --project=the-agency",
-      "Quality Gate Status: PASSED (Reliability: A, Security: A)",
+      "$ the-agency client:deliver --id=odonto-sorriso",
+      "31 suítes de teste executadas com sucesso. Cobertura: 88.5%",
+      "$ security-scan --project=odonto-sorriso",
+      "0 vulnerabilidades detectadas (Semgrep + Gitleaks + Trivy + Nuclei)",
+      "$ bank-inter:pix --status",
+      "Liquidação financeira 100% confirmada. Repositório Git transferido ao cliente.",
     ],
   },
   {
     id: "run-103",
     runNumber: "#103",
-    service: "WhatsApp Service",
-    ref: "main",
+    service: "Barbearia Dom Pedro",
+    ref: "client/barbearia-dom-pedro",
     time: "2m 10s",
-    status: "PASS",
-    summary: "Sessão Baileys recuperada automaticamente",
-    commitMsg: "fix: reconexão automática e retry exponencial",
+    status: "ENTREGUE",
+    summary: "Vitrine interativa de serviços e sistema de reservas entregues",
+    commitMsg: "feat: testes Playwright 86% e entrega do repositório Git",
     sha: "8a1e204",
     steps: [
-      { name: "BDD Specs", cmd: "gherkin-lint", time: "3s", status: "done" },
-      { name: "Testes Jest", cmd: "npm test", time: "42s", status: "done" },
+      { name: "Prospecção", cmd: "osint-enrich", time: "14s", status: "done" },
+      { name: "Demo Bespoke", cmd: "demo-build", time: "42s", status: "done" },
       {
-        name: "Auditoria Semgrep",
-        cmd: "semgrep scan",
-        time: "14s",
+        name: "Segurança 5 Scanners",
+        cmd: "sec-audit",
+        time: "24s",
         status: "done",
       },
       {
-        name: "Deploy Docker",
-        cmd: "docker-push",
+        name: "Entrega Final",
+        cmd: "handover-prod",
         time: "28s",
         status: "done",
       },
     ],
     logs: [
-      "$ npm test -- --coverage",
-      "14 passed, 0 failed. Cobertura total: 88.5%",
-      "$ semgrep --config=p/security-audit",
-      "Scan complete. 0 high severity findings detected.",
-      "$ docker build -t arnaut/whatsapp:v1.2 .",
-      "Container healthcheck passed in 40ms.",
+      "$ the-agency pipeline:run --client=barbearia-dom-pedro",
+      "Protótipo interativo validado pelo cliente via WhatsApp em 4 minutos",
+      "$ inter-banking --verify-pix-signal",
+      "Sinal de 50% confirmado via PIX automatizado mTLS",
+      "$ docker-build --tag=production",
+      "Deploy concluído na nuvem com domínio próprio e SSL ativo.",
     ],
   },
   {
     id: "run-102",
     runNumber: "#102",
-    service: "Engine Dispatcher",
-    ref: "main",
+    service: "Auto Elétrica Central",
+    ref: "client/auto-eletrica-central",
     time: "1m 15s",
-    status: "PASS",
-    summary: "RabbitMQ Dead Letter Exchange configurada",
-    commitMsg: "chore: resiliência de mensagens assíncronas",
+    status: "EM ANDAMENTO",
+    summary: "Catálogo interativo com orçamento rápido via WhatsApp",
+    commitMsg: "chore: protótipo sob medida em homologação com cliente",
     sha: "4b99cd2",
     steps: [
-      { name: "BDD Specs", cmd: "gherkin-lint", time: "2s", status: "done" },
       {
-        name: "Testes AMQP",
-        cmd: "pytest tests/amqp",
-        time: "24s",
+        name: "Mineração Maps",
+        cmd: "osint-enrich",
+        time: "10s",
         status: "done",
       },
+      { name: "Demo Vercel", cmd: "demo-build", time: "28s", status: "done" },
       {
-        name: "Verificação Gate",
-        cmd: "gate-verify",
-        time: "12s",
+        name: "Negociação",
+        cmd: "whatsapp-copilot",
+        time: "15s",
         status: "done",
       },
-      { name: "Deploy Prod", cmd: "cluster-sync", time: "22s", status: "done" },
+      { name: "Fábrica Dev", cmd: "dev-squad", time: "22s", status: "running" },
     ],
     logs: [
-      "$ pytest tests/amqp/test_dispatcher.py",
-      "9 passed. Retry policies e Dead Letter Exchanges verificados.",
-      "$ gitleaks detect --redact",
-      "No leaks found.",
-      "$ cluster-sync --env=production",
-      "Queue topologies synced across all cluster nodes.",
+      "$ the-agency leads:enrich --place-id=auto-central-sp",
+      "Dores extraídas: cliente relata demora no envio de tabela de serviços",
+      "$ whatsapp-gateway:send-sample",
+      "Demo com link interativo enviada com sucesso no WhatsApp do proprietário",
+      "$ dev-squad --clean-architecture",
+      "Squad autônomo gerando componentes TypeScript com tipagem estrita.",
     ],
   },
 ];
@@ -123,24 +139,24 @@ export default function AgencyEngine() {
   const [selectedRun, setSelectedRun] = useState<PipelineRun>(RUNS[0]);
 
   return (
-    <section
-      className="section"
-      id="agency"
-      style={{ "--h": 1 } as React.CSSProperties}
-      aria-labelledby="agency-h"
-    >
+    <section className="section" id="agency" aria-labelledby="agency-h">
       <div className="wrap">
         <div className="grid">
           <h2 id="agency-h" className="span-6">
-            The Agency: esteira autônoma de engenharia de software.{" "}
-            <span className="muted">Operação contínua de ponta a ponta.</span>
+            The Agency: sua agência de software operada por inteligência
+            artificial.{" "}
+            <span className="muted">
+              Operação contínua de ponta a ponta sem necessidade de equipe
+              técnica.
+            </span>
           </h2>
           <p className="span-6 start-7" style={{ color: "var(--p-muted)" }}>
-            Orquestramos agentes especializados que escrevem especificações BDD,
-            geram código limpo, validam testes e executam deploy isolado sem
-            intervenção manual.{" "}
+            Você é o dono do negócio; a IA é a equipe completa. Acompanhe a
+            esteira prospectar clientes no Maps, gerar protótipos sob medida,
+            fechar vendas no WhatsApp e entregar software de produção com
+            segurança auditada.{" "}
             <a className="link" href="#contact">
-              Solicitar proposta
+              Entrar na lista de espera
             </a>
           </p>
         </div>
@@ -148,7 +164,7 @@ export default function AgencyEngine() {
         <div
           className="ui app fill"
           role="img"
-          aria-label="Cockpit operacional da esteira The Agency com lista de execuções e pipeline de validação"
+          aria-label="Cockpit operacional da esteira The Agency com lista de entregas e pipeline de validação"
         >
           {/* Left Pane: Pipeline run selection */}
           <div className="app__pane app__pane--list" aria-hidden="true">
@@ -159,7 +175,7 @@ export default function AgencyEngine() {
                   <i></i>
                   <i></i>
                 </span>
-                <span className="ui-win__title">Pipelines em produção</span>
+                <span className="ui-win__title">Entregas em produção</span>
               </div>
               <div style={{ padding: "12px", display: "grid", gap: "8px" }}>
                 {RUNS.map((run) => (
@@ -190,7 +206,7 @@ export default function AgencyEngine() {
                       }}
                     >
                       <span>
-                        Deploy {run.runNumber} · {run.service}
+                        Entrega {run.runNumber} · {run.service}
                       </span>
                       <span
                         style={{
@@ -236,7 +252,9 @@ export default function AgencyEngine() {
                     color: "var(--p-accent)",
                   }}
                 >
-                  Concluído
+                  {selectedRun.status === "ENTREGUE"
+                    ? "Concluído"
+                    : "Em execução"}
                 </span>
               </div>
 
@@ -255,7 +273,7 @@ export default function AgencyEngine() {
                     fontWeight: 600,
                   }}
                 >
-                  AR
+                  AG
                 </span>
                 <span className="ui-pipe__msg">{selectedRun.commitMsg}</span>
                 <code

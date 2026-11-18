@@ -350,9 +350,42 @@ body {
   }
 }
 
+/* Ritmo vertical moderno e sem vãos excessivos entre seções */
+main > :is(section, .section) {
+  height: auto !important;
+  min-height: auto !important;
+  padding-block: clamp(36px, 4.5vh, 56px) !important;
+  overflow: visible !important;
+}
+
+main > :is(section, .section) > :is(.wrap, .container) {
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Hero mantém proporção nobre no carregamento inicial */
+main > :is(.hero, .section--hero) {
+  min-height: min(82vh, 740px) !important;
+  padding-top: calc(var(--nav, 64px) + 24px) !important;
+  padding-bottom: 36px !important;
+}
+
+/* Fundo opaco garantido e z-index para a barra de navegação superior */
+.nav {
+  background-color: #0f0f0f !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  z-index: 100 !important;
+}
+
+/* Scroll margin para links de âncora não ficarem ocultos sob a navbar fixa */
+section[id],
+main > section {
+  scroll-margin-top: calc(var(--nav, 64px) + 20px);
+}
+
 #faq {
-  --padt: 80px;
-  --padb: 64px;
+  --padt: 40px;
+  --padb: 40px;
 }
 
 .faq {
@@ -360,10 +393,28 @@ body {
   gap: 16px;
 }
 
+.faq__item {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.faq__item h3 {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.faq__item p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--p-muted);
+}
+
 /* Guarantee Card and Contact section density */
 #contact {
-  --padt: 64px;
-  --padb: 64px;
+  --padt: 40px;
+  --padb: 48px;
 }
 
 #contact .guarantee-card {
@@ -374,11 +425,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-height: 560px;
+  min-height: auto;
 }
 
 #contact .form {
-  min-height: 560px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   gap: 14px;

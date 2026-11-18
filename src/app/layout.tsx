@@ -1,41 +1,26 @@
 import type { Metadata } from "next";
-import { Host_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const hostGrotesk = Host_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-host-grotesk",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  weight: ["400", "500"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arnaut.dev.br"),
   title:
-    "Arnaut LTDA: Software house de engenharia autônoma para sistemas críticos",
+    "Arnaut - Tenha Sua Própria Agência de Software | Plataforma AI-Native",
   description:
-    "Projetamos e operamos esteiras de software autônomas com agentes de IA, testes contínuos e arquitetura corporativa confinada.",
+    "The Agency by Arnaut: plataforma de IA que permite a qualquer empreendedor operar sua própria agência de desenvolvimento de software sem saber programar. Configure, fature e escale.",
   openGraph: {
     type: "website",
     title:
-      "Arnaut LTDA: Software house de engenharia autônoma para sistemas críticos",
+      "Arnaut - Tenha Sua Própria Agência de Software | Plataforma AI-Native",
     description:
-      "Projetamos e operamos esteiras de software autônomas com agentes de IA, testes contínuos e arquitetura corporativa confinada.",
+      "The Agency by Arnaut: plataforma de IA que permite a qualquer empreendedor operar sua própria agência de desenvolvimento de software sem saber programar. Configure, fature e escale.",
     images: ["/share.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Arnaut LTDA: Software house de engenharia autônoma para sistemas críticos",
+      "Arnaut - Tenha Sua Própria Agência de Software | Plataforma AI-Native",
     description:
-      "Projetamos e operamos esteiras de software autônomas com agentes de IA, testes contínuos e arquitetura corporativa confinada.",
+      "The Agency by Arnaut: plataforma de IA que permite a qualquer empreendedor operar sua própria agência de desenvolvimento de software sem saber programar. Configure, fature e escale.",
     images: ["/share.jpg"],
   },
   icons: {
@@ -56,8 +41,19 @@ export default function RootLayout({
       data-ground="sand"
       data-buttons="solid"
       data-motion=""
-      className={`${hostGrotesk.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );
